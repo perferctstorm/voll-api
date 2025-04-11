@@ -2,7 +2,9 @@ package med.voll.api.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import med.voll.api.dto.AtualizarMedicoDTO;
 import med.voll.api.dto.EnderecoDTO;
+import org.springframework.util.ObjectUtils;
 
 @Entity
 @Table(name = "medicos")
@@ -19,8 +21,33 @@ public class Medico {
     private String email;
     private String telefone;
     private String crm;
+    private Short ativo;
+
     @Enumerated(EnumType.STRING)
     private Especialidade especialidade;
     @Embedded
     private Endereco endereco;
+
+    public Medico(Long id, String nome, String email, String telefone, String crm, Especialidade especialidade, Endereco endereco) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        this.crm = crm;
+        this.especialidade = especialidade;
+        this.endereco = endereco;
+    }
+
+    public void atualizar(AtualizarMedicoDTO medicoDTO) {
+        if(!ObjectUtils.isEmpty(medicoDTO.nome()))
+            this.setNome(medicoDTO.nome());
+        if(!ObjectUtils.isEmpty(medicoDTO.telefone()))
+            this.setTelefone(medicoDTO.telefone());
+        if(medicoDTO.endereco()!=null)
+            this.endereco.atualizar(medicoDTO.endereco());
+    }
+
+    public void excluir() {
+        this.setAtivo((short)0);
+    }
 }
