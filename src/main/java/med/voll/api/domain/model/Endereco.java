@@ -1,8 +1,8 @@
-package med.voll.api.model;
+package med.voll.api.domain.model;
 
 import jakarta.persistence.Embeddable;
 import lombok.*;
-import med.voll.api.dto.EnderecoDTO;
+import med.voll.api.domain.dto.EnderecoDTO;
 import org.springframework.util.ObjectUtils;
 
 @Embeddable

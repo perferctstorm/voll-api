@@ -1,9 +1,8 @@
-package med.voll.api.model;
+package med.voll.api.domain.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import med.voll.api.dto.AtualizarMedicoDTO;
-import med.voll.api.dto.EnderecoDTO;
+import med.voll.api.domain.dto.AtualizarMedicoDTO;
 import org.springframework.util.ObjectUtils;
 
 @Entity

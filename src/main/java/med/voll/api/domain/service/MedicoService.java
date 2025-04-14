@@ -1,10 +1,10 @@
-package med.voll.api.service;
+package med.voll.api.domain.service;
 
-import med.voll.api.dto.AtualizarMedicoDTO;
-import med.voll.api.dto.ListarMedicoDTO;
-import med.voll.api.dto.MedicoDTO;
-import med.voll.api.model.Medico;
-import med.voll.api.repository.MedicoReporitory;
+import med.voll.api.domain.dto.AtualizarMedicoDTO;
+import med.voll.api.domain.dto.ListarMedicoDTO;
+import med.voll.api.domain.dto.MedicoDTO;
+import med.voll.api.domain.model.Medico;
+import med.voll.api.domain.repository.MedicoReporitory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -46,9 +46,7 @@ public class MedicoService {
     }
 
     public MedicoDTO detalhar(Long id) {
-        Optional<Medico> medico = reporitory.findByIdEqualsAndAtivoEquals(id, (short)1);
-        if(medico.isPresent())
-            return conversor.converteParaMedicoDTO(medico.get());
-        return null;
+        Medico medico = reporitory.findByIdEqualsAndAtivoEquals(id, (short)1);
+        return conversor.converteParaMedicoDTO(medico);
     }
 }

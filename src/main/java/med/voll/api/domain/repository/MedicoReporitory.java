@@ -1,15 +1,13 @@
-package med.voll.api.repository;
+package med.voll.api.domain.repository;
 
-import med.voll.api.model.Medico;
+import med.voll.api.domain.model.Medico;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import java.util.Optional;
-
 public interface MedicoReporitory extends JpaRepository<Medico, Long> {
     @Query("SELECT m FROM Medico m WHERE ativo = 1")
     Page<Medico> buscarAtivos(Pageable paginacao);
-    Optional<Medico> findByIdEqualsAndAtivoEquals(Long id, Short ativo);
+    Medico findByIdEqualsAndAtivoEquals(Long id, Short ativo);
 }

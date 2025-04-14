@@ -1,12 +1,11 @@
-package med.voll.api.service;
+package med.voll.api.domain.service;
 
-import med.voll.api.dto.AtualizarMedicoDTO;
-import med.voll.api.dto.EnderecoDTO;
-import med.voll.api.dto.ListarMedicoDTO;
-import med.voll.api.dto.MedicoDTO;
-import med.voll.api.model.Endereco;
-import med.voll.api.model.Especialidade;
-import med.voll.api.model.Medico;
+import med.voll.api.domain.dto.AtualizarMedicoDTO;
+import med.voll.api.domain.dto.EnderecoDTO;
+import med.voll.api.domain.dto.ListarMedicoDTO;
+import med.voll.api.domain.dto.MedicoDTO;
+import med.voll.api.domain.model.Endereco;
+import med.voll.api.domain.model.Medico;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
