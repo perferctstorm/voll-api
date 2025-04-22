@@ -19,6 +19,7 @@ public class Medico {
     private String nome;
     private String email;
     private String telefone;
+    @Column(unique = true)
     private String crm;
     private Short ativo;
 
